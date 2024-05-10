@@ -16,7 +16,7 @@ import kotlin.math.floor
 
 class OyunEkraniActivity : AppCompatActivity() {
 
-    //Pozisyonlar
+    
     private var anakarakterX = 0.0f
     private var anakarakterY = 0.0f
     private var siyahkareX = 0.0f
@@ -26,13 +26,13 @@ class OyunEkraniActivity : AppCompatActivity() {
     private var kirmiziucgenX = 0.0f
     private var kirmiziucgenY = 0.0f
 
-    //Boyutlara
+    
     private var ekranGenisligi = 0
     private var ekranYukseligi = 0
     private var anakarakterGenisligi = 0
     private var anakarakterYuksekligi = 0
 
-    //Kontroller
+    
     private var dokunmaKontrol = false
     private var baslangicKontrol = false
 
@@ -44,7 +44,7 @@ class OyunEkraniActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_oyun_ekrani)
 
-        //Cisimleri ekranın dışına çıkarma
+        
         siyahkare.x = -80.0f
         siyahkare.y = -80.0f
         saridaire.x = -80.0f
@@ -67,10 +67,10 @@ class OyunEkraniActivity : AppCompatActivity() {
                 }else{
                     baslangicKontrol = true
 
-                    //Kullanıcı başlama uyarısını görünmez yapar.
+                
                     textViewOyunaBasla.visibility = View.INVISIBLE
 
-                    //Anakarakterin ekrandaki başlama konumuna göre x ve y konumu alındı
+                    
                     anakarakterX = anakarakter.x
                     anakarakterY = anakarakter.y
 
@@ -79,7 +79,7 @@ class OyunEkraniActivity : AppCompatActivity() {
                     ekranGenisligi = cl.width
                     ekranYukseligi = cl.height
 
-                    timer.schedule(0,20){//0ms geçikmeli 20ms aralıkla tekrarlı çalışır.
+                    timer.schedule(0,20){
                         Handler(Looper.getMainLooper()).post {
                             anakarakterHareketEttirme()
                             cisimlerinHareketEttir()
@@ -168,7 +168,7 @@ class OyunEkraniActivity : AppCompatActivity() {
             && anakarakterY <= siyahkareMerkezY && siyahkareMerkezY <= anakarakterY + anakarakterYuksekligi) {
             siyahkareX = -10.0f
 
-            timer.cancel()//Timer durdur.
+            timer.cancel()
 
             val intent = Intent(this@OyunEkraniActivity, SonucEkraniActivity::class.java)
             intent.putExtra("skor", skor)
